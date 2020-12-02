@@ -7,7 +7,7 @@ marv
 
 ## installation
 
-currently, marv relies on pandoc to render html and pdf files. follow the [installation instructions](https://pandoc.org/installing.html) for your os.
+marv relies on pandoc to render html and pdf files. follow the [installation instructions](https://pandoc.org/installing.html) for your os.
 
 once pandoc is installed, use your plugin manager of choice to install marv. for example, with [vim-plug](https://github.com/junegunn/vim-plug):
 
