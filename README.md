@@ -16,12 +16,6 @@ use git or your plugin manager of choice to install marv.
 * call or map `MarvHTML` to render markdown to html and open using the default browser.
 * call or map `MarvPDF` to render markdown to pdf and open using the defaul pdf viewer.
 
-## roadmap
-
-### windows support
-
-marv will hopefully "just work" on windows; just need to sort out the commands to open the tempfiles in the default applications.
-
 # acknowledgements
 
 * [steve losh's](https://stevelosh.com/) book, [learn vimscript the hard way](https://learnvimscriptthehardway.stevelosh.com/), was a great and useful read.
