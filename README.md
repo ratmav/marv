@@ -9,10 +9,7 @@ marv
 
 marv relies on pandoc to render html and pdf files. follow the [installation instructions](https://pandoc.org/installing.html) for your os.
 
-once pandoc is installed, use your plugin manager of choice to install marv. for example, with [vim-plug](https://github.com/junegunn/vim-plug):
-
-    * add the following to your vim configuration: `Plug 'ratmav/marv'`
-    * run `:PlugInstall`
+use git or your plugin manager of choice to install marv.
 
 ## use
 
@@ -27,5 +24,4 @@ marv will hopefully "just work" on windows; just need to sort out the commands t
 
 # acknowledgements
 
-* [ben williams'](https://plasticboy.com/) plugin, [vim-markdown](https://github.com/plasticboy/vim-markdown), was a great resource.
 * [steve losh's](https://stevelosh.com/) book, [learn vimscript the hard way](https://learnvimscriptthehardway.stevelosh.com/), was a great and useful read.
