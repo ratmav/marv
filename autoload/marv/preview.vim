@@ -5,7 +5,7 @@ function! marv#preview#Render(extension) abort
   let tempfile = '/tmp/' . title . a:extension
 
   " only set the title metadata attribute for html
-  if a:extension == '.pdf'
+  if a:extension ==# '.pdf'
     let prefix = ':! pandoc -s -V geometry:margin=1in -o'
   else
     let prefix = ':! pandoc --metadata title="' . title . '" -s -V geometry:margin=1in -o'
@@ -39,9 +39,9 @@ function! marv#preview#Preview(extension) abort
     " is pandoc installed?
     if executable('pandoc')
       " is the extension supported?
-      if a:extension == '.pdf' || a:extension == '.html'
+      if a:extension ==# '.pdf' || a:extension ==# '.html'
         "is the buffer in markdown?
-        if expand("%:e") != "md"
+        if expand('%:e') !=# 'md'
           echo 'marv: buffer is not a markdown file.'
         else
           " render the tempfile.
