@@ -1,0 +1,1 @@
+call marv#init#Init()
