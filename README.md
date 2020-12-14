@@ -1,9 +1,7 @@
 marv
 ====
 
-**alpha software. work in progress.**
-
-(mar)kdown (v)im: syntax highlighting, folding, and pdf or html previews for markdown
+(mar)kdown (v)im: markdown html and pdf previews
 
 ## installation
 
@@ -11,11 +9,23 @@ marv relies on pandoc to render html and pdf files. follow the [installation ins
 
 use git or your plugin manager of choice to install marv.
 
-## use
+### commands
 
-* call or map `MarvHTML` to render markdown to html and open using the default browser.
-* call or map `MarvPDF` to render markdown to pdf and open using the defaul pdf viewer.
+* `MarvHTML`: renders markdown to a html tempfile and opens the tempfile with the system default web browser.
+* `MarvPDF`: renders markdown to a pdf tempfile and opens the tempfile with the system default pdf viewer.
+
+#### mapping example
+
+add the following to your vim configuration to preview markdown in html and pdf, respectively:
+
+```vimscript
+" marv {{{
+nnoremap <silent><Leader>h :execute 'MarvHTML'<CR>
+nnoremap <silent><Leader>p :execute 'MarvPDF'<CR>
+" }}}
+```
 
 # acknowledgements
 
+* [the pandoc contributors and maintainers.](https://github.com/jgm/pandoc/graphs/contributors)
 * [steve losh's](https://stevelosh.com/) book, [learn vimscript the hard way](https://learnvimscriptthehardway.stevelosh.com/), was a great and useful read.
