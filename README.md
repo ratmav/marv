@@ -25,7 +25,7 @@ nnoremap <silent><Leader>p :execute 'MarvPDF'<CR>
 " }}}
 ```
 
-# acknowledgements
+## acknowledgements
 
 * [the pandoc contributors and maintainers.](https://github.com/jgm/pandoc/graphs/contributors)
 * [steve losh's](https://stevelosh.com/) book, [learn vimscript the hard way](https://learnvimscriptthehardway.stevelosh.com/), was a great and useful read.
