@@ -1,19 +1,19 @@
 " marv#preview#Render {{{
 function! marv#preview#Render(extension) abort
-  let sourcefile = expand('%:t')
-  let title = fnamemodify(sourcefile, ':r')
-  let tempfile = '/tmp/' . title . a:extension
+  let sourcefile = expand('%:p')
+  let tempfile = '/tmp/' . expand('%:t:r') . a:extension
 
   " only set the title metadata attribute for html
   if a:extension ==# '.pdf'
     let prefix = ':! pandoc -s -V geometry:margin=1in -o'
   else
-    let prefix = ':! pandoc --metadata title="' . title . '" -s -V geometry:margin=1in -o'
+    let prefix = ':! pandoc --metadata title="marv preview" -s -V geometry:margin=1in -o'
   endif
 
   " clean up old tempfiles, then build new tempfile
   silent execute ':! rm -f ' . tempfile
   silent execute prefix . ' ' . tempfile . ' ' . sourcefile
+  echo 'marv: rendered ' . a:extension . ' preview.'
 
   return tempfile
 endfunction
@@ -46,7 +46,6 @@ function! marv#preview#Preview(extension) abort
         else
           " render the tempfile.
           let tempfile = marv#preview#Render(a:extension)
-          "echo 'marv: rendered ' . a:extension . ' preview.'
 
           " open the tempfile
           call marv#preview#Open(os, tempfile)
