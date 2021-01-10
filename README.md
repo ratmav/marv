@@ -5,14 +5,14 @@ marv
 
 ## installation
 
-marv relies on pandoc to render html and pdf files. follow the [installation instructions](https://pandoc.org/installing.html) for your os.
+marv relies on pandoc to render html and pdf. follow the [installation instructions](https://pandoc.org/installing.html) for your os.
 
 use git or your plugin manager of choice to install marv.
 
 ### commands
 
-* `MarvHTML`: renders markdown to a html tempfile and opens the tempfile with the system default web browser.
-* `MarvPDF`: renders markdown to a pdf tempfile and opens the tempfile with the system default pdf viewer.
+* `MarvHTML`: renders the current markdown buffer to a html tempfile and opens the tempfile with the system default web browser.
+* `MarvPDF`: renders the current markdown buffer to a pdf tempfile and opens the tempfile with the system default pdf viewer.
 
 #### mapping example
 
