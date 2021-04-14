@@ -12,7 +12,7 @@ function! marv#preview#Render(extension) abort
 
   " clean up old tempfiles, then build new tempfile
   silent execute ':! rm -f ' . tempfile
-  execute prefix . ' "' . tempfile . '" "' . sourcefile . '"'
+  silent execute prefix . ' "' . tempfile . '" "' . sourcefile . '"'
   echo 'marv: rendered ' . a:extension . ' preview.'
 
   return tempfile
