@@ -1,0 +1,4 @@
+-- Standard globals
+globals = {
+  "vim"
+}
