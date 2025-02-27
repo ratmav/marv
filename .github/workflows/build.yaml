@@ -1,0 +1,65 @@
+name: Build Binaries for Linux and macOS
+
+on:
+  workflow_dispatch:
+  push:
+    branches: [ main, master ]
+
+jobs:
+  build-linux:
+    name: Build Linux x86_64
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+
+      - name: Set up Rust
+        uses: dtolnay/rust-toolchain@stable
+        with:
+          toolchain: stable
+
+      - name: Install build dependencies
+        run: |
+          sudo apt-get update
+          sudo apt-get install -y build-essential pkg-config libssl-dev
+
+      - name: Build Linux binary
+        run: make build
+
+      - name: Configure Git
+        run: |
+          git config --local user.email "github-actions[bot]@users.noreply.github.com"
+          git config --local user.name "github-actions[bot]"
+
+      - name: Commit Linux binary
+        run: |
+          git add bin/marv-linux-amd64
+          git commit -m "Add Linux x86_64 binary [skip ci]" || echo "No changes to commit"
+          git push
+
+  build-macos:
+    name: Build macOS ARM64
+    runs-on: macos-latest
+    needs: build-linux
+    steps:
+      - uses: actions/checkout@v4
+        with:
+          ref: ${{ github.ref }}
+
+      - name: Set up Rust
+        uses: dtolnay/rust-toolchain@stable
+        with:
+          toolchain: stable
+
+      - name: Build macOS binary
+        run: make build
+
+      - name: Configure Git
+        run: |
+          git config --local user.email "github-actions[bot]@users.noreply.github.com"
+          git config --local user.name "github-actions[bot]"
+
+      - name: Commit macOS binary
+        run: |
+          git add bin/marv-darwin-arm64
+          git commit -m "Add macOS ARM64 binary [skip ci]" || echo "No changes to commit"
+          git push

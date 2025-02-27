@@ -1,0 +1,22 @@
+# Linux x86_64 with musl libc (static linking)
+[target.x86_64-unknown-linux-musl]
+image = "ghcr.io/cross-rs/x86_64-unknown-linux-musl:0.2.5"
+
+# Install dependencies needed for building with musl
+pre-build = [
+    "apk add --no-cache pkgconfig openssl-dev"
+]
+
+# Enable static linking for musl build
+[target.x86_64-unknown-linux-musl.env]
+RUSTFLAGS = "-C target-feature=+crt-static"
+
+# macOS ARM64 configuration
+[target.aarch64-apple-darwin]
+image = "ghcr.io/cross-rs/aarch64-apple-darwin:main"
+
+# macOS ARM64 environment variables
+[target.aarch64-apple-darwin.env]
+MACOSX_DEPLOYMENT_TARGET = "11.0"
+
+# TODO: Add configuration for Linux ARM64 (aarch64-unknown-linux-musl) in the future
